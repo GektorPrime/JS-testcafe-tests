@@ -56,6 +56,10 @@ test('Interface', async t => {
 });
 
 test('Let us know', async t => {
+    const comments = Selector('#comments');
     await t
-        .typeText('#comments', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s')
+        .click('#tried-test-cafe')
+        .typeText(comments, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s')
+        .expect(comments.value).eql('Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s');
+
 });
