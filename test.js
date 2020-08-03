@@ -3,6 +3,7 @@ import { Selector } from 'testcafe';
 fixture `Example page tests`
     .page `http://devexpress.github.io/testcafe/example`;
 
+//test name input, test populate button, use assertation to ckeck default name, submit
 test('My name', async t => {
     const nameInput = Selector('#developer-name');
     await t
@@ -11,15 +12,14 @@ test('My name', async t => {
         .click('#populate')
         .expect(nameInput.value).eql('Peter Parker')
         .click('#submit-button')
-
         // Use the assertion to check if the actual header text is equal to the expected one
         .expect(Selector('#article-header').innerText).eql('Thank you, Peter Parker!');
-    
-    const articleHeader = await Selector('.result-content').find('h1');
     // Obtain the text of the article header
+    const articleHeader = await Selector('.result-content').find('h1');
     let headerText = await articleHeader.innerText;
 }); 
 
+//go through all checkboxes
 test('Checkboxes', async t => {
     await t
         .click('#remote-testing')
@@ -29,6 +29,7 @@ test('Checkboxes', async t => {
         .click('#traffic-markup-analysis');
 });
 
+//test slider, assert the value after changing it
 test('Slider', async t => {
     const slider = Selector('.ui-slider-handle.ui-corner-all.ui-state-default');
     const x = slider.getStyleProperty('left');
@@ -39,6 +40,7 @@ test('Slider', async t => {
         .expect(x).eql('360.656px');
 });
 
+//go through all radio buttons
 test('Radio', async t => {
     await t
         .click('#windows')
@@ -46,6 +48,7 @@ test('Radio', async t => {
         .click('#linux');
 });
 
+//open dropdown, select one item, assert expected selection
 test('Interface', async t => {
     const interSelect = Selector('#preferred-interface');
     const interOption = interSelect.find('option');
@@ -55,6 +58,7 @@ test('Interface', async t => {
         .expect(interSelect.value).eql('Both');
 });
 
+//input text, assert it
 test('Let us know', async t => {
     const comments = Selector('#comments');
     await t
