@@ -1,5 +1,6 @@
 # JS-testcafe-tests
 The set of tests to demonstrte Testcafe capabilities
+
 [/devexpress/test.js](https://github.com/GektorPrime/JS-testcafe-tests/blob/master/devexpress/test.js) - test shows interaction capabilities on http://devexpress.github.io/testcafe/example page:
 - test name input, test populate button, use assertation to check default name, submit
 - go through all checkboxes
