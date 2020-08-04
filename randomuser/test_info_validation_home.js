@@ -44,23 +44,29 @@ test('Name contains two words', async t => {
     });
     await t
         .expect(name_value()).ok('passed');
-        //.expect(name_value()).eql('ololo') //debug line
+        //.expect(name_value()).eql('ololo'); //debug line
 });
 
 test('Email contains @', async t => {
     const email_val = Selector('#values_list').child(1).getAttribute('data-value');
     await t
-        .expect(email_val).contains('@', 'string is not an email');
+        .expect(email_val).contains('@', 'string is not an email')
+        .expect(email_val).contains('.', 'string is not an email');
 });
 
-// test('Phone number contains no letters', async t => {
-//     const learnmore = Selector('#learnmore').exists;
-//     await t
-//         .expect(learnmore).ok()
-// });
-
-//        .expect(email_val).notContains('@')
-
+test('Phone number contains no letters', async t => {
+    //const phone_val = Selector('#values_list').child(4).getAttribute('data-value');
+    const phone_value = ClientFunction((str) => {
+        const phone_val =  document.getElementById("values_list").childNodes[4].getAttribute('data-value');
+        if (phone_val.match(/^[-()0-9]+$/)) {
+            return true;
+        } else{
+            return false;
+        }
+      });        
+    await t
+        .expect( phone_value() ).ok( 'passed' );
+});
 
 
 // const name_count = Selector('#values_list').child('li').count;
