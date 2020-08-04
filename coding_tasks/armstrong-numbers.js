@@ -23,3 +23,5 @@ function isArmstrongNumber (number) {
 isArmstrongNumber(371); // 371 is Armstrong number // true
 
 isArmstrongNumber(475); // 475 is not Armstrong number // false
+
+isArmstrongNumber(153); 
