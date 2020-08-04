@@ -3,7 +3,7 @@ import { Selector } from 'testcafe';
 fixture `Example page tests`
     .page `http://devexpress.github.io/testcafe/example`;
 
-//test name input, test populate button, use assertation to ckeck default name, submit
+//test name input, test populate button, use assertation to check default name, submit
 test('My name', async t => {
     const nameInput = Selector('#developer-name');
     await t
