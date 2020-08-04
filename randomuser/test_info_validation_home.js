@@ -1,3 +1,4 @@
+import xPathToCss from "xpath-to-css";
 import { Selector, ClientFunction } from 'testcafe';
 
 fixture `randomuser home page data validation`
@@ -68,6 +69,8 @@ test('Phone number contains no letters', async t => {
         .expect( phone_value() ).ok( 'passed' );
 });
 
+//date format?
+//address is alphanumeric?
 
 // const name_count = Selector('#values_list').child('li').count;
 // const name = Selector('#values_list').child(0);
